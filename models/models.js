@@ -6,6 +6,14 @@ async function getCharacters() {
     const charArray = result.rows;
     return charArray;
   }
+
+  async function getMoves() {
+    // Query the database and return all books
+    const result = await query("SELECT * FROM moves;")
+    const movesArray = result.rows;
+    return movesArray;
+  }
+
 /////down
   async function createData(data) {
     const result = await query (`INSERT INTO characters ( name) VALUES ($1)`,[data.name])//.name, newArtists.date_of_birth])
@@ -14,5 +22,6 @@ async function getCharacters() {
 /////up
   module.exports = {
     getCharacters,
+    getMoves,
     createData ////////
   }
